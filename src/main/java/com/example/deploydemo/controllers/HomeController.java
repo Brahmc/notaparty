@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @Value("${specialnumber}")
+    @Value("${specialnumber:111}")
     private int specialNumber;
 
-    @GetMapping("/")
+    @GetMapping({"/", "/home"})
     public String home(Model model) {
         model.addAttribute("specialNumber", specialNumber);
         return "home";
